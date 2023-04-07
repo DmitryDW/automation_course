@@ -1,2 +1,3 @@
-# automation_course-
+# automation_course
 Курс по автоматизации тестирования с selenium
+Выполнение заданий по курсу "Автоматизация тестирования с помощью Selenium и Python"
