@@ -12,8 +12,11 @@ class LoginPageLocators():
 
 class BasketPageLocators():
     ADD_BASKET = (By.CSS_SELECTOR, "#add_to_basket_form > button")
+    BOOK_NAME = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > h1")
+    BOOK_NAME_ON_BASKET = (By.CSS_SELECTOR, '#messages > div:nth-child(1) > div > strong')
+    ADDED_BOOK = (By.CSS_SELECTOR, '#content_inner > article > div.row > div.col-sm-6.product_main > h1')
+    BASKET_PRICE = (By.CSS_SELECTOR, '#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > p:nth-child(1) > strong')
+    BOOK_ON_BASKET_PRICE =(By.CSS_SELECTOR, '#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color')
 
 
 
-
-#content_inner > article > div.row > div.col-sm-6.product_main > h1
