@@ -12,3 +12,8 @@ class LoginPageLocators():
 
 class BasketPageLocators():
     ADD_BASKET = (By.CSS_SELECTOR, "#add_to_basket_form > button")
+
+
+
+
+#content_inner > article > div.row > div.col-sm-6.product_main > h1
