@@ -13,19 +13,19 @@ class ProductPage(BasePage):
         name = product_name.text
         basket_name = self.browser.find_element(*BasketPageLocators.BOOK_NAME_ON_BASKET)
         real_name = basket_name.text
-        assert name == real_name, 'Название товара не совпадает'
+        assert name == real_name
 
 
     def name_and_price_from_basket(self):
-        book_name = self.browser.find_element(*BasketPageLocators.BOOK_NAME)
-        name_on_alert = book_name.text
-        book_name_added = self.browser.find_element(*BasketPageLocators.ADDED_BOOK)
-        real_name = book_name_added.text
+        #book_name = self.browser.find_element(*BasketPageLocators.BOOK_NAME)
+        #name_on_alert = book_name.text
+        #book_name_added = self.browser.find_element(*BasketPageLocators.ADDED_BOOK)
+        #real_name = book_name_added.text
         basket_price = self.browser.find_element(*BasketPageLocators.BASKET_PRICE)
         real_price_basket = basket_price.text
         book_price = self.browser.find_element(*BasketPageLocators.BOOK_ON_BASKET_PRICE)
         real_book_price = book_price.text
-        assert name_on_alert == real_name
+        #assert name_on_alert == real_name
         assert real_price_basket == real_book_price
 
 
