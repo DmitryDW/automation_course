@@ -34,7 +34,7 @@ class ProductPage(BasePage):
         "   Success message is presented, but should not be"
 
 
-    def test_guest_cant_see_success_message(self):
+    def guest_cant_see_success_message(self):
         assert self.is_not_element_present(*BasketPageLocators.ADDED_BOOK), \
             "   Success message is presented, but should not be"
 
