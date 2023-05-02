@@ -17,16 +17,26 @@ class ProductPage(BasePage):
 
 
     def name_and_price_from_basket(self):
-        #book_name = self.browser.find_element(*BasketPageLocators.BOOK_NAME)
-        #name_on_alert = book_name.text
-        #book_name_added = self.browser.find_element(*BasketPageLocators.ADDED_BOOK)
-        #real_name = book_name_added.text
+        book_name = self.browser.find_element(*BasketPageLocators.BOOK_NAME)
+        name_on_alert = book_name.text
+        book_name_added = self.browser.find_element(*BasketPageLocators.ADDED_BOOK)
+        real_name = book_name_added.text
         basket_price = self.browser.find_element(*BasketPageLocators.BASKET_PRICE)
         real_price_basket = basket_price.text
         book_price = self.browser.find_element(*BasketPageLocators.BOOK_ON_BASKET_PRICE)
         real_book_price = book_price.text
-        #assert name_on_alert == real_name
+        assert name_on_alert == real_name
         assert real_price_basket == real_book_price
+
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*BasketPageLocators.BOOK_NAME), \
+        "   Success message is presented, but should not be"
+
+
+    def test_guest_cant_see_success_message(self):
+        assert self.is_not_element_present(*BasketPageLocators.ADDED_BOOK), \
+            "   Success message is presented, but should not be"
 
 
 
