@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
 
-
 @pytest.fixture(scope="function")
 def browser():
     print("\nstart browser for test..")

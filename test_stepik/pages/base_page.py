@@ -1,16 +1,15 @@
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators
-from .locators import BasketPageLocators
-from selenium.webdriver.common.by import By
-
 import math
 
+from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from .locators import BasePageLocators
+from .locators import BasketPageLocators
 
-class BasePage():
+
+class BasePage:
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
@@ -26,7 +25,6 @@ class BasePage():
             return False
         return True
 
-
     def is_not_element_present(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
@@ -34,7 +32,6 @@ class BasePage():
             return True
 
         return False
-
 
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
@@ -47,11 +44,9 @@ class BasePage():
         login_link = self.browser.find_element(*BasePageLocators.GO_TO_BASKET)
         login_link.click()
 
-
     def basket_not_have_book(self):
         assert self.is_not_element_present(*BasketPageLocators.BOOK_NAME), \
-        "Success message is presented, but should not be"
-
+            "Success message is presented, but should not be"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
@@ -66,5 +61,3 @@ class BasePage():
             alert.accept()
         except (NoAlertPresentException, TimeoutException):
             print("No second alert presented")
-
-
